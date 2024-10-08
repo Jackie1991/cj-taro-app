@@ -6,3 +6,7 @@ deploy_versions/
 node_modules/
 .DS_Store
 .swc
+
+# lock file
+yarn.lock
+package-lock.json

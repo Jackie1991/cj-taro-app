@@ -4,7 +4,7 @@ module.exports = {
     NODE_ENV: '"production"',
   },
   defineConstants: {
-    TARO_APP_BASE_URL: '',
+    TARO_APP_BASE_URL: '""',
   },
   mini: {},
   h5: {

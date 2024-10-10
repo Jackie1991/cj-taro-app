@@ -1,32 +1,61 @@
 import { Component, PropsWithChildren } from 'react'
-import { View, Text } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { View, Button, Text } from '@tarojs/components'
+import { observer, inject } from 'mobx-react'
 
 import './index.scss'
 
-export default class Index extends Component<PropsWithChildren> {
-  componentDidMount() {}
+type PageStateProps = {
+  store: {
+    counterStore: {
+      counter: number,
+      increment: Function,
+      decrement: Function,
+      incrementAsync: Function
+    }
+  }
+}
 
-  componentWillUnmount() {}
+interface Index {
+  props: PageStateProps;
+}
 
-  componentDidShow() {}
+@inject('store')
+@observer
+class Index extends Component<PropsWithChildren> {
+  componentDidMount () { }
 
-  componentDidHide() {}
+  componentWillUnmount () { }
 
-  render() {
+  componentDidShow () { }
+
+  componentDidHide () { }
+
+  increment = () => {
+    const { counterStore } = this.props.store
+    counterStore.increment()
+  }
+
+  decrement = () => {
+    const { counterStore } = this.props.store
+    counterStore.decrement()
+  }
+
+  incrementAsync = () => {
+    const { counterStore } = this.props.store
+    counterStore.incrementAsync()
+  }
+
+  render () {
+    const { counterStore: { counter } } = this.props.store
     return (
       <View className='index'>
-        <Text>Hello world!</Text>
-        <AtButton type='primary'>I need Taro UI</AtButton>
-        <Text>Taro UI 支持 Vue 了吗？</Text>
-        <AtButton type='primary' circle>
-          支持
-        </AtButton>
-        <Text>共建？</Text>
-        <AtButton type='secondary' circle>
-          来
-        </AtButton>
+        <Button onClick={this.increment}>+</Button>
+        <Button onClick={this.decrement}>-</Button>
+        <Button onClick={this.incrementAsync}>Add Async</Button>
+        <Text>{counter}</Text>
       </View>
     )
   }
 }
+
+export default Index

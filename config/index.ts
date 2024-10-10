@@ -2,7 +2,7 @@ import path from 'path'
 
 const config = {
   projectName: 'cj-taro-app',
-  date: '2024-10-8',
+  date: '2024-10-10',
   designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,
@@ -62,7 +62,7 @@ const config = {
       url: {
         enable: true,
         config: {
-          limit: 2048, // 设定转换尺寸上限
+          limit: 1024, // 设定转换尺寸上限
         },
       },
       cssModules: {
@@ -77,7 +77,6 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
-    esnextModules: ['taro-ui'],
     postcss: {
       autoprefixer: {
         enable: true,
@@ -89,11 +88,6 @@ const config = {
           namingPattern: 'module', // 转换模式，取值为 global/module
           generateScopedName: '[name]__[local]___[hash:base64:5]',
         },
-      },
-    },
-    output: {
-      environment: {
-        asyncFunction: true,
       },
     },
   },

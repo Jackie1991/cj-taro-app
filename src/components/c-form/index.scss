@@ -1,0 +1,122 @@
+.c-form {
+  font-size: $baseFontSize;
+  padding: $gap;
+
+  &::after {
+    display: none;
+  }
+
+  &-item {
+    display: flex;
+
+    &--border {
+      border-bottom: 1px solid $borderColor;
+
+      &:first-child {
+        border-top: 1px solid $borderColor;
+      }
+    }
+
+    &__label {
+      position: relative;
+      width: 172px;
+      line-height: 1.5;
+      padding: $spacing 0 $spacing 15px;
+
+      &--required::before {
+        content: '*';
+        position: absolute;
+        left: 0;
+        top: $spacing;
+        color: #f44;
+      }
+    }
+
+    &__content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+
+      .at-input,
+      .at-radio,
+      .at-checkbox {
+        margin-bottom: 0;
+        margin-left: 0;
+        width: 100%;
+
+        &::before,
+        &::after {
+          display: none;
+        }
+
+        &__option {
+          padding-left: 0;
+        }
+      }
+
+      .at-radio {
+        &__option-container {
+          flex-direction: row-reverse;
+          align-items: center;
+
+          .at-radio__icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            width: $radio-cricle;
+            height: $radio-cricle;
+            flex: none;
+            margin-right: $spacing;
+            border-radius: 50%;
+            border: 2px solid rgba($color: $color, $alpha: 0.2);
+            visibility: visible;
+            box-sizing: border-box;
+            font-size: $spacing;
+
+            .at-icon {
+              color: transparent;
+            }
+
+            &--checked {
+              background-color: $color;
+              border: none;
+
+              .at-icon {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+
+      .at-checkbox {
+        &__option-cnt {
+          align-items: center;
+        }
+
+        &__icon-cnt {
+          margin-top: 0;
+          border-radius: 4px;
+        }
+      }
+
+      .at-image-picker {
+        &__flex-box {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        &__flex-item:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &-footer {
+    .at-button {
+      margin-top: $gap;
+    }
+  }
+}

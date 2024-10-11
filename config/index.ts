@@ -34,6 +34,9 @@ const config = {
     '@utils': path.resolve(__dirname, '..', 'src/utils/index.ts'),
     '@components': path.resolve(__dirname, '..', 'src/components/index.ts'),
   },
+  sass: {
+    resource: path.resolve(__dirname, '..', 'src/styles/variable.scss'),
+  },
   mini: {
     webpackChain: (chain, webpack) => {
       chain.merge({

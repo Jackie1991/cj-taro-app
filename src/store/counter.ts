@@ -15,7 +15,7 @@ const counterStore = observable({
     setTimeout(() => {
       this.counter++
     }, 1000)
-  }
+  },
 })
 
 export default counterStore
